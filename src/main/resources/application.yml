@@ -1,0 +1,26 @@
+#启用指定的 profiles
+spring:
+  profiles:
+    active: local
+
+---
+
+spring:
+  profiles: local
+  h2:
+    console:
+      path: /h2-console   # h2 web consloe 路径
+      enabled: true       # 开启 h2 web consloe，默认为 false
+      settings:
+        web-allow-others: true    #允许远程访问 h2 web consloe
+  datasource:
+    username: sa
+    url: jdbc:h2:~/test
+    driver-class-name:  org.h2.Driver
+
+logging:
+  file: alipay
+  path: ./log
+
+server:
+  port: 8080
